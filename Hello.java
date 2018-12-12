@@ -1,7 +1,7 @@
 //for testing 
 
 
-class Hello-world
+class Hello
 {  
     public static void main(String args[])
     {  
