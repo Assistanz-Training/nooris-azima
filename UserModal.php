@@ -10,6 +10,7 @@ class UserModal {
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
+//echo "created";
 // Check connection
 if ($conn->connect_error) {
 	throw new Exception($conn->connect_error);
@@ -22,22 +23,25 @@ if ($conn->connect_error) {
 //}
 //else{
 	
-	
-$sql = "INSERT INTO  user_1(firstname,lastname,email,phone,lic_no,username)
-VALUES ('".$postValue['firstname']."','".$postValue['lastname']."','".$postValue['email']."','".$postValue['phone']."','".$postValue['lic_no']."','".$postValue['username']."')";
+$firstname=$_POST['firstname'];	
+$sql = "INSERT INTO  user(firstname,lastname,email,phone,username,password,source,destination,dateofpickup,Timeofpickup,cab,cardnumber)VALUES ('".$postValue['firstname']."','".$postValue['lastname']."','".$postValue['email']."','".$postValue['phone']."','".$postValue['username']."','".$postValue['password']."','".$postValue['source']."','".$postValue['destination']."','".$postValue['Timeofpickup']."','".$postValue['dateofpickup']."','".$postValue['cab']."','".$postValue['cardnumber']."')";
 
-if ($conn->query($sql) === TRUE) {
-    //echo "New record created successfully";
+
+
+if ($conn->query($sql) == TRUE) {
+    echo "New record created successfully";
 } else {
 	throw new Exception($conn->error);
 }
 
 
-	
-//}
 $conn->close();
 
 
 	}
 	
 }
+?>
+
+
+
